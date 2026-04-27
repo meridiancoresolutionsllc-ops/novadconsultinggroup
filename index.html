@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova D Consulting Group</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 90vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #d4af37;
+      color: #000;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: .25s ease;
+    }
+
+    .btn:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 56px);
+      text-transform: uppercase;
+      margin-bottom: 45px;
+      color: #d4af37;
+      line-height: 1.1;
+    }
+
+    .movement {
+      background: #0f0f0f;
+    }
+
+    .movement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .movement img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .movement h2 {
+      font-size: 42px;
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+
+    .movement p {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: #ddd;
+    }
+
+    .paths {
+      background: #050505;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid rgba(212,175,55,.35);
+      border-radius: 24px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 28px;
+    }
+
+    .card h3 {
+      color: #d4af37;
+      font-size: 24px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: #ddd;
+      margin-bottom: 22px;
+    }
+
+    .testimonials {
+      background: #111;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial {
+      background: #050505;
+      border-radius: 20px;
+      min-height: 220px;
+      padding: 25px;
+      border: 1px solid #222;
+    }
+
+    .testimonial span {
+      color: #d4af37;
+      font-size: 36px;
+    }
+
+    .testimonial p {
+      color: #ddd;
+      margin: 15px 0;
+    }
+
+    .testimonial strong {
+      color: #fff;
+    }
+
+    .faq {
+      background: #050505;
+    }
+
+    details {
+      background: #111;
+      border: 1px solid rgba(212,175,55,.25);
+      margin-bottom: 14px;
+      padding: 20px;
+      border-radius: 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #d4af37;
+      font-size: 18px;
+    }
+
+    details p {
+      margin-top: 14px;
+      color: #ddd;
+    }
+
+    .subscribe {
+      background: #111;
+      text-align: center;
+    }
+
+    .subscribe h2 {
+      color: #d4af37;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .subscribe p {
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .sms {
+      font-size: 13px;
+      color: #bbb;
+      text-align: left;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background: #d4af37;
+      color: #000;
+      padding: 16px;
+      border-radius: 50px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    .cta {
+      background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+    .cta h2 {
+      color: #d4af37;
+      font-size: clamp(36px, 6vw, 70px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 20px;
+      color: #eee;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 30px 20px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #d4af37;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      .movement-grid,
+      .path-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 55px 18px;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="logo">NDCG</div>
+      <h1>Take Control of Your Credit</h1>
+      <p>Credit repair, business credit guidance, and financial literacy tools designed to help you build your future.</p>
+      <a href="#start" class="btn">Get Started Today</a>
+    </div>
+  </header>
+
+  <section class="movement">
+    <div class="container movement-grid">
+      <div>
+        <h2>More Than a Service – It's a Movement</h2>
+        <p>At Nova D Consulting Group, we believe financial literacy should have been taught in school.</p>
+        <p>That’s why NDCG provides real-world solutions to help people take control of their credit, business, and financial future.</p>
+        <p>Whether you're starting, rebuilding, or scaling, NDCG gives you the knowledge, tools, and support to succeed.</p>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=900&q=80" alt="Financial planning">
+    </div>
+  </section>
+
+  <section class="paths">
+    <div class="container">
+      <h2 class="section-title">Choose Your Path</h2>
+
+      <div class="path-grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="card-body">
+            <h3>Credit Repair</h3>
+            <p>Personalized guidance to fast-track your financial success.</p>
+            <a href="#" class="btn">View Packages</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="card-body">
+            <h3>Business Credit</h3>
+            <p>Learn how to launch, attract clients, and scale your brand step by step.</p>
+            <a href="#" class="btn">View Packages</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="card-body">
+            <h3>Financial Literacy</h3>
+            <p>Learn the credit and money skills school forgot to teach.</p>
+            <a href="#" class="btn">View Packages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Testimonials</h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial"><span>“</span><p>My score improved faster than I expected.</p><strong>Client Review</strong></div>
+        <div class="testimonial"><span>“</span><p>The process was simple and professional.</p><strong>Client Review</strong></div>
+        <div class="testimonial"><span>“</span><p>I finally understand how credit works.</p><strong>Client Review</strong></div>
+        <div class="testimonial"><span>“</span><p>NDCG helped me get back on track.</p><strong>Client Review</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <details open>
+        <summary>Why should I choose your company?</summary>
+        <p>We provide credit repair, business credit services, eviction solutions, and education to help clients build stronger financial profiles.</p>
+      </details>
+
+      <details>
+        <summary>Are consultations necessary?</summary>
+        <p>No. You can sign up directly, and once you become a client, you’ll receive onboarding support.</p>
+      </details>
+
+      <details>
+        <summary>How long does it take to see results?</summary>
+        <p>Many clients begin seeing progress within 30–45 days, though timelines vary depending on creditors and credit bureaus.</p>
+      </details>
+
+      <details>
+        <summary>Are there hidden fees?</summary>
+        <p>No hidden fees. Package pricing should be clearly listed before sign-up.</p>
+      </details>
+
+      <details>
+        <summary>Can you work on multiple accounts at once?</summary>
+        <p>Yes. Multiple inaccurate, incomplete, or unverifiable items can be disputed simultaneously.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="subscribe">
+    <div class="container">
+      <h2>Subscribe to Nova D Consulting Group</h2>
+      <p>Sign up to get exclusive email updates directly from us.</p>
+
+      <form>
+        <input type="text" placeholder="First Name *" required>
+        <input type="text" placeholder="Last Name *" required>
+        <input type="email" placeholder="Email *" required>
+        <input type="tel" placeholder="Phone *">
+
+        <p class="sms">
+          By submitting your phone number, you agree to receive transactional and promotional SMS/MMS messages. Message frequency varies. Reply STOP to opt out and HELP for help.
+        </p>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="cta" id="start">
+    <div class="container">
+      <h2>Ready to Begin Your Journey?</h2>
+      <p>Imagine the confidence and peace of mind you'll gain by securing the credit score you’ve always wanted.</p>
+      <a href="#" class="btn">Get Started Today!</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>COPYRIGHTS 2024 | NOVA D CONSULTING GROUP</p>
+    <p>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </p>
+  </footer>
+
+</body>
+</html>
