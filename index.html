@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nova D Consulting Group helps clients rebuild after financial setbacks, improve credit profiles, and position themselves for approvals in 45-90 days.">
+<meta name="keywords" content="credit repair, business credit, funding assistance, credit education, Nova D Consulting Group">
+<title>Nova D Consulting Group | Rebuild. Reset. Get Approved.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #008080;
+    --teal-light: #00a7a7;
+    --teal-dark: #011f1f;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --dark2: #1A1A1A;
+    --dark3: #222222;
+    --white: #FFFFFF;
+    --gray: #B8B8B8;
+    --muted: rgba(255,255,255,.64);
+    --shadow-gold: 0 0 36px rgba(201,168,76,.25);
+    --shadow-teal: 0 0 32px rgba(0,128,128,.25);
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  section { padding: 98px 24px; position: relative; }
+  .container { width: min(1120px, 100%); margin: 0 auto; }
+  .section-kicker { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-size: .68rem; font-weight: 800; margin-bottom: 14px; }
+  .section-title { font-family: var(--font-display); font-weight: 900; line-height: 1.08; font-size: clamp(2.15rem, 4.6vw, 4rem); margin-bottom: 18px; }
+  .section-title em { color: var(--teal-light); font-style: italic; }
+  .section-subtitle { color: var(--muted); line-height: 1.85; max-width: 690px; font-size: .95rem; }
+  .center { text-align: center; }
+  .center .section-subtitle { margin: 0 auto; }
+  .gold-line { width: 74px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 24px 0 36px; }
+  .center .gold-line { margin-left: auto; margin-right: auto; }
+  .btn { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 15px 28px; text-decoration: none; font-size: .75rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease; cursor: pointer; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-teal { background: var(--teal); color: var(--white); box-shadow: var(--shadow-teal); }
+  .btn-teal:hover { background: var(--teal-light); }
+  .btn-gold { background: var(--gold); color: var(--black); box-shadow: var(--shadow-gold); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline-gold { background: rgba(0,0,0,.15); border-color: rgba(201,168,76,.78); color: var(--gold); }
+  .btn-outline-gold:hover { background: rgba(201,168,76,.09); border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* Navigation */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 1000; background: rgba(10,10,10,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(201,168,76,.20); }
+  .nav-inner { width: min(1180px, 100%); margin: 0 auto; padding: 15px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; transition: padding .25s ease; }
+  nav.scrolled .nav-inner { padding-top: 10px; padding-bottom: 10px; }
+  .nav-logo { font-family: var(--font-display); text-decoration: none; color: var(--gold); font-size: 1.45rem; font-weight: 900; letter-spacing: .5px; white-space: nowrap; }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; align-items: center; gap: 23px; list-style: none; }
+  .nav-links a { color: var(--white); text-decoration: none; font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.8px; padding: 10px 0; border-bottom: 2px solid transparent; transition: color .2s ease, border-color .2s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--teal-light); border-color: var(--gold); }
+  .nav-links .nav-cta { background: var(--gold); color: var(--black) !important; padding: 12px 20px; border-radius: 999px; border-bottom: none; }
+  .nav-links .portal-link { color: var(--gold); }
+  .hamburger { display: none; border: 0; background: transparent; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { width: 28px; height: 2px; background: var(--gold); display: block; }
+  .mobile-menu { position: fixed; inset: 0; z-index: 999; background: rgba(10,10,10,.98); transform: translateX(100%); transition: transform .3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 26px; padding: 40px; }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a { color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-close { position: absolute; top: 24px; right: 26px; border: 0; background: transparent; color: var(--gold); font-size: 2rem; cursor: pointer; }
+
+  /* Hero */
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 150px 24px 90px; overflow: hidden; background: linear-gradient(90deg, rgba(10,10,10,.88), rgba(10,10,10,.70)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 18% 30%, rgba(0,128,128,.25), transparent 30%), radial-gradient(circle at 82% 38%, rgba(201,168,76,.18), transparent 28%); animation: slowGlow 8s ease-in-out infinite alternate; }
+  .hero-content { position: relative; width: min(1050px, 100%); margin: 0 auto; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--teal-light); border: 1px solid var(--gold); border-radius: 999px; padding: 9px 18px; font-size: .67rem; font-weight: 900; letter-spacing: 2.8px; text-transform: uppercase; background: rgba(10,10,10,.65); box-shadow: var(--shadow-gold); margin-bottom: 28px; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 6.8rem); line-height: .98; max-width: 940px; letter-spacing: -.04em; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero .pain-line { margin-top: 24px; color: var(--gold-light); font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; font-size: .82rem; }
+  .hero p { margin-top: 16px; max-width: 660px; color: rgba(255,255,255,.66); line-height: 1.85; font-size: .98rem; }
+  .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 36px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 54px; max-width: 920px; }
+  .stat-card { background: rgba(17,17,17,.78); border: 1px solid rgba(255,255,255,.08); border-top: 2px solid var(--gold); border-radius: 18px; padding: 22px 18px; backdrop-filter: blur(8px); }
+  .stat-card strong { display: block; font-family: var(--font-display); font-size: 2.1rem; line-height: 1; color: var(--white); }
+  .stat-card span { display: block; color: var(--teal-light); font-size: .67rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; }
+  .urgency-strip { margin-top: 24px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(201,168,76,.35); border-radius: 999px; padding: 10px 16px; color: var(--white); background: rgba(201,168,76,.08); font-size: .76rem; font-weight: 700; }
+  .pulse-dot { width: 9px; height: 9px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 0 rgba(201,168,76,.7); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(201,168,76,.65); } 70% { box-shadow: 0 0 0 10px rgba(201,168,76,0); } 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); } }
+  @keyframes slowGlow { from { opacity: .75; transform: scale(1); } to { opacity: 1; transform: scale(1.03); } }
+
+  .marquee-wrap { overflow: hidden; background: #050505; border-block: 1px solid rgba(201,168,76,.22); }
+  .marquee-track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+  .marquee-track span { color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: .72rem; padding: 15px 18px; white-space: nowrap; }
+  .marquee-track .teal { color: var(--teal-light); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* Proof */
+  .proof { background: var(--teal-dark); padding: 72px 24px; }
+  .proof-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 16px; align-items: stretch; }
+  .proof-intro, .mini-proof { background: rgba(10,10,10,.54); border: 1px solid rgba(201,168,76,.16); border-radius: 22px; padding: 26px; }
+  .proof-intro h2 { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); }
+  .proof-intro h2 em { color: var(--gold); font-style: italic; }
+  .mini-proof b { display: block; color: var(--gold); font-family: var(--font-display); font-size: 2rem; margin-bottom: 8px; }
+  .mini-proof span { color: var(--muted); font-size: .82rem; line-height: 1.6; }
+
+  /* Shared cards */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .dark-card { background: var(--dark2); border: 1px solid rgba(201,168,76,.18); border-radius: 24px; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  .dark-card h3 { font-family: var(--font-display); font-size: 1.45rem; margin-bottom: 10px; }
+  .dark-card p, .dark-card li { color: var(--muted); line-height: 1.75; font-size: .87rem; }
+  .dark-card .icon { width: 48px; height: 48px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; margin-bottom: 18px; color: var(--teal-light); font-size: 1.35rem; background: rgba(201,168,76,.06); }
+
+  /* Services */
+  .services { background: var(--black); }
+  .service-banners { display: grid; gap: 22px; margin-top: 52px; }
+  .service-banner { min-height: 270px; border-radius: 28px; overflow: hidden; position: relative; border: 1px solid rgba(201,168,76,.25); background: var(--dark2); display: flex; align-items: flex-end; text-decoration: none; isolation: isolate; }
+  .service-banner::before { content: ''; position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s ease; z-index: -2; }
+  .service-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,.88), rgba(10,10,10,.44)); z-index: -1; }
+  .service-banner:hover::before { transform: scale(1.08); }
+  .service-banner.credit::before { background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=80'); }
+  .service-banner.mentor::before { background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=80'); }
+  .service-banner.academy::before { background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80'); }
+  .service-content { padding: 36px; max-width: 650px; }
+  .service-content h3 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 8px; }
+  .service-content p { color: rgba(255,255,255,.72); line-height: 1.75; margin-bottom: 18px; }
+  .service-content span { color: var(--gold); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: .75rem; }
+  .service-feature-grid { margin-top: 28px; }
+
+  /* Results */
+  .results { background: var(--dark); }
+  .result-card { position: relative; overflow: hidden; }
+  .result-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+  .result-number { color: var(--white); font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; }
+  .result-label { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: .68rem; font-weight: 900; margin: 7px 0 16px; }
+  .video-grid { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .video-card { min-height: 320px; border-radius: 22px; border: 1px solid rgba(201,168,76,.2); background: linear-gradient(135deg, #222, #111); display: grid; place-items: center; position: relative; overflow: hidden; }
+  .video-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,128,128,.28), transparent 55%); }
+  .play-button { position: relative; width: 74px; height: 74px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; color: var(--gold); background: rgba(0,0,0,.44); font-size: 1.6rem; box-shadow: var(--shadow-gold); }
+  .video-caption { position: absolute; left: 20px; right: 20px; bottom: 20px; color: var(--white); font-weight: 800; }
+
+  /* Pricing */
+  .pricing { background: linear-gradient(180deg, var(--black), var(--teal-dark)); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 48px; }
+  .price-card { background: rgba(17,17,17,.86); border: 1px solid rgba(201,168,76,.20); border-radius: 24px; padding: 28px 22px; position: relative; display: flex; flex-direction: column; min-height: 100%; }
+  .price-card.popular { border-color: var(--gold); box-shadow: var(--shadow-gold); transform: translateY(-10px); }
+  .badge { display: inline-flex; align-items: center; width: max-content; padding: 7px 12px; border-radius: 999px; background: rgba(201,168,76,.13); color: var(--gold); border: 1px solid rgba(201,168,76,.35); font-size: .63rem; text-transform: uppercase; letter-spacing: 1.8px; font-weight: 900; margin-bottom: 14px; }
+  .price-card h3 { font-family: var(--font-display); font-size: 1.45rem; min-height: 52px; }
+  .price { font-family: var(--font-display); font-size: 2.75rem; color: var(--gold); margin: 16px 0 4px; }
+  .price small { font-family: var(--font-body); font-size: .82rem; color: var(--muted); }
+  .savings { color: var(--teal-light); font-size: .78rem; font-weight: 800; margin-bottom: 16px; }
+  .feature-checks { list-style: none; margin: 18px 0 26px; display: grid; gap: 11px; }
+  .feature-checks li { display: flex; gap: 10px; color: rgba(255,255,255,.72); font-size: .82rem; line-height: 1.45; }
+  .feature-checks li::before { content: '✓'; color: var(--teal-light); width: 19px; height: 19px; border: 1px solid rgba(0,128,128,.7); border-radius: 50%; display: inline-grid; place-items: center; flex: 0 0 19px; font-size: .65rem; }
+  .price-card .btn { margin-top: auto; width: 100%; padding-left: 18px; padding-right: 18px; }
+  .guarantee-card { margin-top: 28px; border: 1px solid var(--gold); border-radius: 26px; padding: 28px; background: radial-gradient(circle at 10% 10%, rgba(201,168,76,.16), transparent 30%), rgba(10,10,10,.72); box-shadow: var(--shadow-gold); display: flex; gap: 20px; align-items: center; }
+  .guarantee-icon { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); font-size: 1.6rem; flex: 0 0 auto; }
+  .guarantee-card h3 { font-family: var(--font-display); font-size: 1.55rem; margin-bottom: 6px; }
+  .guarantee-card p { color: var(--muted); line-height: 1.75; }
+
+  /* Tools / academy */
+  .resources { background: var(--black); border-block: 1px solid rgba(201,168,76,.22); }
+  .product-card { overflow: hidden; padding: 0; }
+  .product-cover { min-height: 185px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(0,128,128,.44), rgba(201,168,76,.22)), var(--dark3); border-bottom: 1px solid rgba(201,168,76,.18); }
+  .product-cover span { font-family: var(--font-display); font-size: 2rem; color: var(--white); text-align: center; padding: 20px; }
+  .product-body { padding: 24px; }
+  .product-body .price-tag { color: var(--gold); font-weight: 900; margin: 10px 0 18px; }
+
+  /* Testimonials */
+  .testimonials { background: var(--dark); }
+  .testi-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testi-card { background: var(--dark2); border: 1px solid rgba(201,168,76,.34); border-radius: 24px; padding: 28px; }
+  .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; }
+  .testi-card p { color: rgba(255,255,255,.70); line-height: 1.8; font-size: .88rem; font-style: italic; }
+  .author { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(0,128,128,.20); display: grid; place-items: center; color: var(--gold); font-weight: 900; }
+  .author b { color: var(--teal-light); font-size: .85rem; display: block; }
+  .author span { color: rgba(255,255,255,.58); font-size: .72rem; }
+
+  /* About */
+  .about { background: #111111; }
+  .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px; align-items: center; }
+  .founder-card { min-height: 580px; border-radius: 30px; border: 1px solid rgba(201,168,76,.28); background: linear-gradient(180deg, rgba(0,128,128,.12), rgba(201,168,76,.08)), url('https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=900&q=80') center/cover no-repeat; position: relative; overflow: hidden; }
+  .founder-card::after { content: 'Founder / Team Photo Placeholder'; position: absolute; left: 24px; right: 24px; bottom: 24px; border-radius: 18px; background: rgba(10,10,10,.72); border: 1px solid rgba(201,168,76,.22); color: var(--gold); padding: 18px; text-transform: uppercase; letter-spacing: 2px; font-size: .7rem; font-weight: 900; }
+  .emblem { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: grid; place-items: center; margin-bottom: 24px; box-shadow: var(--shadow-gold); }
+  .about-copy p { color: var(--muted); line-height: 1.9; margin-bottom: 17px; }
+
+  /* FAQ */
+  .faq { background: #111111; }
+  .faq-list { margin: 48px auto 0; max-width: 880px; display: grid; gap: 12px; }
+  .faq-item { background: rgba(26,26,26,.78); border: 1px solid rgba(255,255,255,.06); border-radius: 18px; overflow: hidden; }
+  .faq-item.open { border-left: 4px solid var(--teal); }
+  .faq-q { width: 100%; background: transparent; border: 0; color: var(--white); font-family: var(--font-body); padding: 22px 24px; text-align: left; display: flex; justify-content: space-between; gap: 20px; font-size: .95rem; font-weight: 800; cursor: pointer; }
+  .faq-icon { color: var(--gold); font-size: 1.35rem; line-height: 1; transition: transform .25s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+  .faq-item.open .faq-a { max-height: 260px; }
+  .faq-a-inner { color: var(--gray); line-height: 1.8; padding: 0 24px 22px; font-size: .88rem; }
+
+  /* Lead capture */
+  .subscribe { background: var(--black); }
+  .lead-box { max-width: 760px; margin: 42px auto 0; padding: 34px; border-radius: 28px; background: rgba(17,17,17,.86); border: 1px solid rgba(201,168,76,.22); box-shadow: 0 25px 70px rgba(0,0,0,.35); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .form-input { width: 100%; background: rgba(255,255,255,.035); border: 0; border-bottom: 1px solid rgba(255,255,255,.18); color: var(--white); padding: 16px 8px; font-family: var(--font-body); outline: 0; transition: border-color .2s ease; }
+  .form-input::placeholder { color: rgba(255,255,255,.38); }
+  .form-input:focus { border-color: var(--teal-light); }
+  .form-consent { margin: 20px 0 26px; color: rgba(255,255,255,.43); line-height: 1.7; font-size: .72rem; }
+  .form-consent strong { color: rgba(255,255,255,.70); }
+  .lead-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+  /* CTA */
+  .final-cta { padding: 126px 24px; text-align: center; background: linear-gradient(135deg, rgba(0,128,128,.62), rgba(10,10,10,.88)), url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; }
+  .final-cta .section-title em { color: var(--gold); }
+  .final-cta p { margin: 0 auto 34px; color: rgba(255,255,255,.72); max-width: 680px; line-height: 1.85; }
+
+  /* Referral */
+  .referral { background: var(--teal-dark); padding: 74px 24px; }
+  .referral-box { display: grid; grid-template-columns: 1.2fr .8fr; gap: 26px; align-items: center; border: 1px solid rgba(201,168,76,.26); border-radius: 28px; padding: 34px; background: rgba(10,10,10,.52); }
+  .reward { font-family: var(--font-display); font-size: 3rem; color: var(--gold); }
+
+
+  /* Client Resources / QR landing link */
+  .client-resources { background: radial-gradient(circle at 20% 0%, rgba(201,168,76,.12), transparent 34%), linear-gradient(135deg, #050505 0%, var(--black) 48%, var(--teal-dark) 100%); border-block: 1px solid rgba(201,168,76,.24); }
+  .client-resource-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 38px; align-items: center; }
+  .client-resource-preview { border: 1px solid rgba(201,168,76,.42); border-radius: 30px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); padding: 24px; box-shadow: var(--shadow-gold); position: relative; overflow: hidden; }
+  .client-resource-preview::before { content: ''; position: absolute; inset: 14px; border: 1px solid rgba(0,128,128,.28); border-radius: 22px; pointer-events: none; }
+  .client-resource-logo { aspect-ratio: 1 / 1; border-radius: 22px; background: #000; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(201,168,76,.24); }
+  .client-resource-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .resource-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+  .resource-list { display: grid; gap: 14px; margin-top: 24px; }
+  .resource-list li { list-style: none; display: flex; gap: 12px; color: var(--gray); line-height: 1.65; }
+  .resource-list li::before { content: '◆'; color: var(--gold); font-size: .72rem; margin-top: 5px; }
+
+  /* Footer */
+  footer { background: #050505; padding: 64px 24px 86px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 34px; padding-bottom: 42px; border-bottom: 1px solid rgba(201,168,76,.26); }
+  .footer-brand p { color: rgba(255,255,255,.48); line-height: 1.75; margin: 14px 0 18px; font-size: .85rem; }
+  .socials { display: flex; gap: 10px; }
+  .socials a { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,.42); border-radius: 50%; display: grid; place-items: center; text-decoration: none; color: var(--teal-light); font-weight: 900; }
+  footer h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: .76rem; margin-bottom: 18px; }
+  footer ul { list-style: none; display: grid; gap: 10px; }
+  footer a { color: rgba(255,255,255,.64); text-decoration: none; font-size: .84rem; transition: color .2s ease; }
+  footer a:hover { color: var(--teal-light); }
+  .portal-card { margin-top: 16px; border: 1px solid rgba(0,128,128,.55); border-radius: 18px; padding: 16px; background: rgba(0,128,128,.08); }
+  .payments { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 28px 0 14px; }
+  .payment-pill { border: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.62); border-radius: 999px; padding: 7px 12px; font-size: .68rem; letter-spacing: 1px; }
+  .copyright { text-align: center; color: rgba(255,255,255,.34); font-size: .74rem; }
+
+  .mobile-sticky { display: none; position: fixed; z-index: 998; left: 14px; right: 14px; bottom: 14px; }
+  .mobile-sticky .btn { width: 100%; }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.on { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1040px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .client-resource-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 820px) {
+    section { padding: 76px 20px; }
+    .hero { padding-top: 126px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .grid-3, .grid-4, .testi-grid, .video-grid, .pricing-grid, .about-grid, .referral-box { grid-template-columns: 1fr; }
+    .service-banners { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+    .service-banner { min-width: 88%; scroll-snap-align: start; min-height: 360px; }
+    .founder-card { min-height: 470px; }
+    .proof-grid, .footer-grid { grid-template-columns: 1fr; }
+    .guarantee-card { align-items: flex-start; }
+    .mobile-sticky { display: block; }
+  }
+  @media (max-width: 560px) {
+    .hero-actions, .lead-actions { flex-direction: column; align-items: stretch; }
+    .btn { width: 100%; }
+    .form-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 12px; }
+    .stat-card { padding: 18px 12px; }
+    .stat-card strong { font-size: 1.75rem; }
+    .lead-box, .referral-box { padding: 24px; }
+  }
+</style>
+<!-- Replace placeholders below with actual integrations before launch:
+     Google Analytics 4, Facebook Pixel, CRM embed, scheduling widget, SMS/email marketing form action. -->
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Nova D <span>Consulting</span></a>
+    <ul class="nav-links">
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Packages</a></li>
+      <li><a href="#testimonials">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="client-resources.html" class="portal-link">Client Resources</a></li>
+      <li><a href="https://calendly.com/helloblessingamos" class="nav-cta" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  <a href="#proof" onclick="closeMobile()">Proof</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#pricing" onclick="closeMobile()">Packages</a>
+  <a href="#testimonials" onclick="closeMobile()">Results</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="client-resources.html">Client Resources</a>
+  <a href="https://calendly.com/helloblessingamos" class="btn btn-gold" target="_blank" rel="noopener">Book Consultation</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-content reveal">
+    <div class="hero-badge">✦ Board-Certified Credit Repair Specialists ✦</div>
+    <h1>From Denied to <em>Approved.</em></h1>
+    <div class="pain-line">Tired of getting denied? Your comeback starts now.</div>
+    <p>Nova D Consulting Group helps people rebuild after financial setbacks and start seeing real results in 45-90 days. We do not just fix credit - we position you for approvals, funding, housing, and financial confidence.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-teal" target="_blank" rel="noopener">Book Your Free Consultation</a>
+      <a href="#pricing" class="btn btn-outline-gold">View Packages</a>
+    </div>
+    <div class="urgency-strip"><span class="pulse-dot"></span> Now accepting new clients - limited onboarding availability weekly.</div>
+    <div class="hero-stats" aria-label="Company result highlights">
+      <div class="stat-card"><strong>1000s</strong><span>Clients Helped</span></div>
+      <div class="stat-card"><strong>$M+</strong><span>Debt Removed</span></div>
+      <div class="stat-card"><strong>45-90</strong><span>Day Strategy Window</span></div>
+      <div class="stat-card"><strong>3</strong><span>Bureau Coverage</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="teal">Credit Repair</span><span>✦</span><span>Business Credit</span><span>✦</span><span class="teal">Funding Prep</span><span>✦</span><span>Eviction Solutions</span><span>✦</span><span class="teal">Approval Academy</span><span>✦</span><span>Score Improvement</span><span>✦</span>
+    <span class="teal">Credit Repair</span><span>✦</span><span>Business Credit</span><span>✦</span><span class="teal">Funding Prep</span><span>✦</span><span>Eviction Solutions</span><span>✦</span><span class="teal">Approval Academy</span><span>✦</span><span>Score Improvement</span><span>✦</span>
+  </div>
+</div>
+
+<section class="proof" id="proof">
+  <div class="container proof-grid">
+    <div class="proof-intro reveal">
+      <div class="section-kicker">Trusted by Clients Nationwide</div>
+      <h2>Rebuild. Reset. <em>Get Approved.</em></h2>
+      <p class="section-subtitle">Built for people with collections, late payments, high utilization, previous denials, and the desire for a real second chance.</p>
+    </div>
+    <div class="mini-proof reveal"><b>+120</b><span>Example point increase after strategic cleanup and utilization guidance.</span></div>
+    <div class="mini-proof reveal"><b>$50K</b><span>Example funding approval preparation after business credit strategy.</span></div>
+    <div class="mini-proof reveal"><b>24/7</b><span>Client resources access for onboarding links, updates, documents, and progress tracking.</span></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container center reveal">
+    <div class="section-kicker">Services</div>
+    <h2 class="section-title">Choose <em>Your Path</em></h2>
+    <p class="section-subtitle">Whether you need personal credit repair, business credit preparation, funding strategy, or DIY education, NDCG gives you a clear next step.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="container service-banners">
+    <a href="#pricing" class="service-banner credit reveal">
+      <div class="service-content">
+        <h3>Personal Credit Repair</h3>
+        <p>Credit cleanup, dispute assistance, score improvement strategy, and three-bureau support for clients ready to stop getting denied.</p>
+        <span>View Packages →</span>
+      </div>
+    </a>
+    <a href="#pricing" class="service-banner mentor reveal">
+      <div class="service-content">
+        <h3>Mentorship & Business Credit</h3>
+        <p>EIN setup guidance, business funding prep, credit strategy, and mentorship for entrepreneurs building approval-ready brands.</p>
+        <span>View Packages →</span>
+      </div>
+    </a>
+    <a href="#academy" class="service-banner academy reveal">
+      <div class="service-content">
+        <h3>Nova D Approval Academy</h3>
+        <p>DIY education, weekly guidance, credit education, approval game plans, community support, and step-by-step rebuilding resources.</p>
+        <span>Learn More →</span>
+      </div>
+    </a>
+  </div>
+  <div class="container grid-4 service-feature-grid">
+    <div class="dark-card reveal"><div class="icon">💳</div><h3>Credit Cleanup</h3><p>Customized dispute strategies for inaccurate, unverifiable, or incomplete reporting.</p></div>
+    <div class="dark-card reveal"><div class="icon">🏢</div><h3>Business Credit</h3><p>Position your business profile for better funding opportunities and credibility.</p></div>
+    <div class="dark-card reveal"><div class="icon">💰</div><h3>Funding Assistance</h3><p>Personal and business funding prep designed to improve your approval odds.</p></div>
+    <div class="dark-card reveal"><div class="icon">📚</div><h3>DIY Resources</h3><p>Guides, classes, community, and consultation options for self-paced rebuilders.</p></div>
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="container center reveal">
+    <div class="section-kicker">Real Results</div>
+    <h2 class="section-title">Credit Tips & <em>Success Stories</em></h2>
+    <p class="section-subtitle">Use this area for testimonial videos, Instagram reels, TikToks, before-and-after snapshots, funding wins, and successful deletion proof.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="container grid-3">
+    <div class="dark-card result-card reveal"><div class="result-number">+120</div><div class="result-label">Point Increase</div><p>Feature a verified client score increase here once approved proof is available.</p></div>
+    <div class="dark-card result-card reveal"><div class="result-number">$50K</div><div class="result-label">Funding Approved</div><p>Highlight client funding approvals or business credit wins with supporting visuals.</p></div>
+    <div class="dark-card result-card reveal"><div class="result-number">200+</div><div class="result-label">Successful Deletions</div><p>Show deleted collections, late payments, charge-offs, or bureau updates.</p></div>
+  </div>
+  <div class="container video-grid">
+    <div class="video-card reveal"><div class="play-button">▶</div><div class="video-caption">Instagram Reel Placeholder</div></div>
+    <div class="video-card reveal"><div class="play-button">▶</div><div class="video-caption">Client Testimonial Placeholder</div></div>
+    <div class="video-card reveal"><div class="play-button">▶</div><div class="video-caption">TikTok Tip Placeholder</div></div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container center reveal">
+    <div class="section-kicker">Packages</div>
+    <h2 class="section-title">Start Your <em>Credit Comeback</em></h2>
+    <p class="section-subtitle">A hybrid offer model built for clients who want affordable monthly support or discounted packages with a clearer end goal.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="container pricing-grid">
+    <article class="price-card reveal">
+      <span class="badge">Monthly Membership</span>
+      <h3>Credit Comeback Program</h3>
+      <div class="price">$99<small>/mo</small></div>
+      <div class="savings">No long-term contracts • Less than $4/day</div>
+      <ul class="feature-checks"><li>Monthly credit repair support</li><li>Custom dispute strategy</li><li>Client resources access</li><li>Progress updates</li></ul>
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-teal" target="_blank" rel="noopener">Start Rebuilding</a>
+    </article>
+    <article class="price-card reveal">
+      <span class="badge">Quick Start</span>
+      <h3>3-Month Package</h3>
+      <div class="price">$199</div>
+      <div class="savings">Save $98 vs. monthly</div>
+      <ul class="feature-checks"><li>Three-month dispute plan</li><li>Credit audit</li><li>Score optimization guidance</li><li>Payment plan option</li></ul>
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-outline-gold" target="_blank" rel="noopener">Lock In Your Spot</a>
+    </article>
+    <article class="price-card popular reveal">
+      <span class="badge">Most Popular</span>
+      <h3>6-Month Transformation Plan</h3>
+      <div class="price">$299</div>
+      <div class="savings">Less than $2/day</div>
+      <ul class="feature-checks"><li>Six-month strategy window</li><li>Full credit audit</li><li>Three-bureau dispute support</li><li>Funding readiness guidance</li></ul>
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-gold" target="_blank" rel="noopener">Start Your Comeback</a>
+    </article>
+    <article class="price-card reveal">
+      <span class="badge">VIP Approval</span>
+      <h3>Unlimited Plan</h3>
+      <div class="price">$449</div>
+      <div class="savings">Unlimited rounds • Work until cleaner profile</div>
+      <ul class="feature-checks"><li>Unlimited dispute rounds</li><li>VIP support pathway</li><li>EWS removal option</li><li>ChexSystems removal option</li></ul>
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-teal" target="_blank" rel="noopener">Get Approved</a>
+    </article>
+  </div>
+  <div class="container">
+    <div class="guarantee-card reveal">
+      <div class="guarantee-icon">🛡</div>
+      <div><h3>Progress Confidence Guarantee</h3><p>If you do not see progress, we continue working with you at no additional cost until you do. Every profile is unique, but your support does not disappear when you need guidance most.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="resources" id="academy">
+  <div class="container center reveal">
+    <div class="section-kicker">Tools & Resources</div>
+    <h2 class="section-title">Empower <em>Yourself</em></h2>
+    <p class="section-subtitle">Add e-books, guides, approval checklists, DIY trainings, and Nova D Approval Academy resources here.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="container grid-3">
+    <article class="dark-card product-card reveal"><div class="product-cover"><span>Credit Comeback Guide</span></div><div class="product-body"><h3>Rebuild After Denial</h3><div class="price-tag">$29</div><a href="#subscribe" class="btn btn-teal">Get It →</a></div></article>
+    <article class="dark-card product-card reveal"><div class="product-cover"><span>Approval Academy</span></div><div class="product-body"><h3>DIY Skool Community</h3><div class="price-tag">Starting at $29/month</div><a href="#subscribe" class="btn btn-gold">Join the Community</a></div></article>
+    <article class="dark-card product-card reveal"><div class="product-cover"><span>Funding Prep Checklist</span></div><div class="product-body"><h3>Business Credit Starter Kit</h3><div class="price-tag">$49</div><a href="#subscribe" class="btn btn-teal">Get It →</a></div></article>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="container center reveal">
+    <div class="section-kicker">Real Results</div>
+    <h2 class="section-title">Client <em>Testimonials</em></h2>
+    <p class="section-subtitle">Replace these placeholder testimonials with approved real client reviews, video embeds, and city/state details.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="container testi-grid">
+    <div class="testi-card reveal"><div class="stars">★★★★★</div><p>“NDCG removed multiple collections from my report within the first 45 days. I finally felt like approvals were possible again.”</p><div class="author"><div class="avatar">JW</div><div><b>Jasmine W.</b><span>Atlanta, GA</span></div></div></div>
+    <div class="testi-card reveal"><div class="stars">★★★★★</div><p>“They walked me through the process, helped me understand my credit, and gave me a real strategy instead of generic advice.”</p><div class="author"><div class="avatar">DM</div><div><b>DeShawn M.</b><span>Chicago, IL</span></div></div></div>
+    <div class="testi-card reveal"><div class="stars">★★★★★</div><p>“The academy helped me rebuild step by step. I finally understand how approvals work and what to do next.”</p><div class="author"><div class="avatar">KT</div><div><b>Keisha T.</b><span>Houston, TX</span></div></div></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="founder-card reveal" aria-label="Founder photo placeholder"></div>
+    <div class="about-copy reveal">
+      <div class="emblem">◆</div>
+      <div class="section-kicker">About Nova D</div>
+      <h2 class="section-title">More Than a Service - <em>It Is a Movement</em></h2>
+      <p>Nova D Consulting Group was built for the person who feels stuck, embarrassed, denied, or ready to give up on their financial future. The mission is to combine education, strategy, and compassionate accountability so clients can rebuild with confidence.</p>
+      <p>We understand that bad credit does not mean your future is over. Your score is not low by accident, and you do not have to stay stuck. NDCG helps you reset your profile, rebuild your confidence, and position yourself for better approvals.</p>
+      <ul class="feature-checks"><li>Relatable, results-focused support</li><li>Customized dispute and score optimization strategies</li><li>Guidance for housing, auto, home, funding, and credit card approvals</li><li>Financial education that feels clear, modern, and empowering</li></ul>
+      <a href="https://calendly.com/helloblessingamos" class="btn btn-gold" target="_blank" rel="noopener">Get Started Today</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container center reveal">
+    <div class="section-kicker">FAQ</div>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    <p class="section-subtitle">Transparent answers help clients feel safe before they book, enroll, or submit their information.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item open"><button class="faq-q">How long will I need to stay in the program? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Every situation is unique. Some clients need only a few months; others stay longer depending on how many items need addressing.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Do you dispute with collection agencies and creditors? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. We dispute directly with both credit bureaus and creditors or collection agencies as needed.</div></div></div>
+    <div class="faq-item"><button class="faq-q">How long does it take to see results? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Many clients begin seeing movement within 30-45 days, but every credit profile depends on the bureaus, creditors, reporting accuracy, and the number of items being challenged.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Are there hidden fees? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">No hidden fees. Any required monitoring, portal, or third-party tools should be clearly explained before enrollment.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Can you guarantee a loan approval? <span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">No company can guarantee lender approval. NDCG focuses on improving your credit profile, correcting inaccurate reporting, and positioning you for stronger approval opportunities.</div></div></div>
+  </div>
+</section>
+
+<section class="subscribe" id="subscribe">
+  <div class="container center reveal">
+    <div class="section-kicker">Lead Capture</div>
+    <h2 class="section-title">Subscribe to <em>NDCG</em></h2>
+    <p class="section-subtitle">Get credit education, approval tips, package updates, and limited onboarding announcements sent directly to you.</p>
+  </div>
+  <div class="lead-box reveal">
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <input class="form-input" type="text" name="firstName" placeholder="First Name" required>
+        <input class="form-input" type="text" name="lastName" placeholder="Last Name" required>
+        <input class="form-input" type="email" name="email" placeholder="Email Address" required>
+        <input class="form-input" type="tel" name="phone" placeholder="Phone Number">
+      </div>
+      <p class="form-consent">By submitting your phone number, you agree to receive <strong>transactional and promotional SMS/MMS messages</strong> from NOVA D CONSULTING GROUP, including appointment reminders, service updates, and occasional offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase.</p>
+      <div class="lead-actions"><button type="submit" class="btn btn-gold">S U B M I T</button><a href="https://calendly.com/helloblessingamos" class="btn btn-outline-gold" target="_blank" rel="noopener">Book Instead</a></div>
+    </form>
+  </div>
+</section>
+
+
+<section class="client-resources" id="client-resources">
+  <div class="container client-resource-grid">
+    <div class="client-resource-preview reveal" aria-label="Nova D client resources preview">
+      <div class="client-resource-logo">
+        <img src="https://cdn0030.qrcodechimp.com/qr/PROD/655e58205b248734f1629c70/fm/c6597bcd-75a9-45e4-8a87-53837112457c.jpeg?v=1744674583712" alt="Nova D Consulting Group logo on black and gold background">
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-kicker">Client Resources</div>
+      <h2 class="section-title">Access the <em>NDCG Client Hub</em></h2>
+      <p class="section-subtitle">This standalone resources page gives clients one clean place to complete onboarding, pull their report, submit information, create or access their portal, review optional credit builders, and contact NDCG.</p>
+      <ul class="resource-list">
+        <li>Use this page as the destination for onboarding instructions, credit monitoring setup, client portal access, document upload steps, credit builder links, and support contact details.</li>
+        <li>The page is designed to live beside this index file in GitHub as client-resources.html, so all Client Resources buttons now point to that local page.</li>
+        <li>Clients can use it after enrolling to follow the required steps without searching through emails or QR links.</li>
+      </ul>
+      <div class="resource-actions">
+        <a href="client-resources.html" class="btn btn-teal">Open Client Resources</a>
+        <a href="#subscribe" class="btn btn-outline-gold">Request Help</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="referral" id="referral">
+  <div class="container referral-box reveal">
+    <div>
+      <div class="section-kicker">Referral Program</div>
+      <h2 class="section-title">Get Rewarded for Referring <em>Friends & Family</em></h2>
+      <p class="section-subtitle">Refer someone to Nova D Consulting Group and earn referral rewards when they enroll.</p>
+    </div>
+    <div class="dark-card center"><div class="reward">$25</div><p>Per successful referral</p><br><a href="#subscribe" class="btn btn-gold">Share NDCG</a></div>
+  </div>
+</section>
+
+<section class="final-cta" id="consultation">
+  <div class="container reveal">
+    <div class="section-kicker">Ready to Begin?</div>
+    <h2 class="section-title">Your Comeback Starts Now. <em>Let’s Get Started!</em></h2>
+    <p>Bad credit does not mean your future is over. Lock in your spot, start rebuilding today, and move toward the approvals you have been waiting for.</p>
+    <a href="https://calendly.com/helloblessingamos" class="btn btn-gold" target="_blank" rel="noopener">Book Your Free Consultation</a>
+  </div>
+</section>
+
+<footer id="client-portal">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="nav-logo">NDCG <span>Consulting</span></a>
+      <p>Nova D Consulting Group is a financial comeback brand helping clients rebuild, reset, and position themselves for approvals.</p>
+      <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="TikTok">TT</a></div>
+    </div>
+    <div><h4>Services</h4><ul><li><a href="#services">Credit Repair</a></li><li><a href="#services">Code to Millions</a></li><li><a href="#academy">SmartStart Academy</a></li><li><a href="https://calendly.com/helloblessingamos" target="_blank" rel="noopener">Book Consultation</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#about">About NDCG</a></li><li><a href="#results">Client Results</a></li><li><a href="#faq">FAQ</a></li><li><a href="#subscribe">Newsletter</a></li></ul></div>
+    <div><h4>Legal & Support</h4><ul><li><a href="https://NDCGconsultant.com/privacy-policy-page-8905" target="_blank" rel="noopener">Privacy Policy</a></li><li><a href="https://NDCGconsultant.com/terms-and-conditions-661477-9665" target="_blank" rel="noopener">Terms & Conditions</a></li><li><a href="client-resources.html">Client Resources</a></li><li><a href="#subscribe">Contact Us</a></li></ul><div class="portal-card"><p>Already a Client?</p><br><a href="client-resources.html" class="btn btn-teal">Access Client Resources →</a></div></div>
+  </div>
+  <div class="payments"><span class="payment-pill">VISA</span><span class="payment-pill">MASTERCARD</span><span class="payment-pill">APPLE PAY</span><span class="payment-pill">AMEX</span><span class="payment-pill">STRIPE</span></div>
+  <p class="copyright">© 2025 Nova D Consulting Group. All Rights Reserved. SMS Compliance Disclaimer applies to all opt-ins.</p>
+</footer>
+
+<div class="mobile-sticky"><a href="https://calendly.com/helloblessingamos" class="btn btn-gold" target="_blank" rel="noopener">Book Free Consultation</a></div>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 48));
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  function closeMobile(){ mobileMenu.classList.remove('open'); }
+
+  document.querySelectorAll('.faq-q').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('on'); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const sections = [...document.querySelectorAll('section[id], header[id]')];
+  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => { if (scrollY >= section.offsetTop - 140) current = section.id; });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+
+  function handleSubmit(e){
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const old = btn.textContent;
+    btn.textContent = 'S U B M I T T E D ✓';
+    setTimeout(() => { btn.textContent = old; e.target.reset(); }, 2600);
+  }
+</script>
+</body>
+</html>
