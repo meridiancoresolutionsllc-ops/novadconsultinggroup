@@ -72,7 +72,7 @@
   .mobile-close { position: absolute; top: 24px; right: 26px; border: 0; background: transparent; color: var(--gold); font-size: 2rem; cursor: pointer; }
 
   /* Hero */
-  .hero { min-height: 100vh; display: flex; align-items: center; padding: 150px 24px 90px; overflow: hidden; background: linear-gradient(90deg, rgba(10,10,10,.88), rgba(10,10,10,.70)), url('images/hero-image.png') center/cover no-repeat; }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 150px 24px 90px; overflow: hidden; background: linear-gradient(90deg, rgba(10,10,10,.88), rgba(10,10,10,.70)), url('images/') center/cover no-repeat; }
   .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 18% 30%, rgba(0,128,128,.25), transparent 30%), radial-gradient(circle at 82% 38%, rgba(201,168,76,.18), transparent 28%); animation: slowGlow 8s ease-in-out infinite alternate; }
   .hero-content { position: relative; width: min(1050px, 100%); margin: 0 auto; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--teal-light); border: 1px solid var(--gold); border-radius: 999px; padding: 9px 18px; font-size: .67rem; font-weight: 900; letter-spacing: 2.8px; text-transform: uppercase; background: rgba(10,10,10,.65); box-shadow: var(--shadow-gold); margin-bottom: 28px; }
@@ -182,8 +182,8 @@
   /* About */
   .about { background: #111111; }
   .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 60px; align-items: center; }
-  .founder-card { min-height: 580px; border-radius: 30px; border: 1px solid rgba(201,168,76,.28); background: linear-gradient(180deg, rgba(0,128,128,.12), rgba(201,168,76,.08)), url('https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=900&q=80') center/cover no-repeat; position: relative; overflow: hidden; }
-  .founder-card::after { content: 'Founder / Team Photo Placeholder'; position: absolute; left: 24px; right: 24px; bottom: 24px; border-radius: 18px; background: rgba(10,10,10,.72); border: 1px solid rgba(201,168,76,.22); color: var(--gold); padding: 18px; text-transform: uppercase; letter-spacing: 2px; font-size: .7rem; font-weight: 900; }
+  .founder-card { min-height: 580px; border-radius: 30px; border: 1px solid rgba(201,168,76,.28); background: linear-gradient(180deg, rgba(0,128,128,.12), rgba(201,168,76,.08)), url('images/founder-photo.jpeg') center/cover no-repeat; position: relative; overflow: hidden; }
+  .founder-card::after { content: 'Founder'; position: absolute; left: 24px; right: 24px; bottom: 24px; border-radius: 18px; background: rgba(10,10,10,.72); border: 1px solid rgba(201,168,76,.22); color: var(--gold); padding: 18px; text-transform: uppercase; letter-spacing: 2px; font-size: .7rem; font-weight: 900; }
   .emblem { width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: grid; place-items: center; margin-bottom: 24px; box-shadow: var(--shadow-gold); }
   .about-copy p { color: var(--muted); line-height: 1.9; margin-bottom: 17px; }
 
