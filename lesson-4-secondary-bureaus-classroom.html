@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LESSON 4: Understanding Secondary Credit Bureaus — NDCG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8F7F5;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-size: 16px;
+      color: #202124;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Top Navigation ─── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: #FFFFFF;
+      border-bottom: 1px solid #E4E4E4;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      z-index: 200;
+      gap: 0;
+    }
+
+    .nav-brand {
+      font-size: 17px;
+      font-weight: 700;
+      color: #202124;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      margin-right: 24px;
+      white-space: nowrap;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 28px;
+      background: #E4E4E4;
+      margin-right: 24px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      height: 64px;
+      gap: 0;
+    }
+
+    .nav-tab {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #909090;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      text-decoration: none;
+      transition: color 150ms, border-color 150ms;
+      white-space: nowrap;
+    }
+
+    .nav-tab:hover {
+      color: #202124;
+    }
+
+    .nav-tab.active {
+      color: #202124;
+      border-bottom-color: #202124;
+    }
+
+    /* ─── Page Layout ─── */
+    .page-wrap {
+      margin-top: 64px;
+      display: flex;
+      min-height: calc(100vh - 64px);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 32px 24px;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 88px;
+    }
+
+    .module-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #909090;
+      padding: 0 10px;
+      margin-bottom: 6px;
+    }
+
+    .module-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #202124;
+      padding: 0 10px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .progress-wrap {
+      padding: 0 10px 16px;
+    }
+
+    .progress-bar {
+      background: #E4E4E4;
+      border-radius: 33px;
+      height: 22px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: #009E5D;
+      height: 100%;
+      width: 33%;
+      border-radius: 33px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .lesson-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .lesson-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #202124;
+      text-decoration: none;
+      transition: background 150ms;
+      line-height: 1.4;
+    }
+
+    .lesson-item:hover {
+      background: #EEECEB;
+    }
+
+    .lesson-item.active {
+      background: #FAE3AC;
+    }
+
+    .lesson-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #C8C8C8;
+      flex-shrink: 0;
+    }
+
+    .lesson-item.active .lesson-dot {
+      background: #202124;
+    }
+
+    .lesson-item.complete .lesson-dot {
+      background: #009E5D;
+    }
+
+    /* ─── Content Area ─── */
+    .content-area {
+      flex: 1;
+      min-width: 0;
+      max-width: 725px;
+    }
+
+    .lesson-card {
+      background: #FFFFFF;
+      border: 1px solid #E4E4E4;
+      border-radius: 10px;
+      padding: 48px 52px;
+    }
+
+    /* ─── Skool Editor Styles ─── */
+    .skool-editor2 {
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #202124;
+    }
+
+    .skool-editor2 p {
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+    }
+
+    .skool-editor2 p:first-child {
+      margin-block-start: 0;
+    }
+
+    .skool-editor2 h1 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #909090;
+      margin-top: 40px;
+      margin-bottom: 6px;
+    }
+
+    .skool-editor2 h1:first-child {
+      margin-top: 0;
+    }
+
+    .skool-editor2 h2 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #202124;
+      margin-top: 4px;
+      margin-bottom: 16px;
+    }
+
+    .skool-editor2 h3 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #202124;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .skool-editor2 h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+
+    .skool-editor2 ul,
+    .skool-editor2 ol {
+      padding-inline-start: 2em;
+      margin-block: 0.75em;
+    }
+
+    .skool-editor2 li {
+      margin-block: 4px;
+    }
+
+    .skool-editor2 hr {
+      border: none;
+      border-top: 1px solid #E4E4E4;
+      margin: 32px 0;
+    }
+
+    .skool-editor2 pre {
+      background: #F8F7F5;
+      border: 1px solid #E4E4E4;
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-family: 'Roboto', monospace;
+      font-size: 14px;
+      color: #505050;
+      margin-block: 1.5em;
+      line-height: 1.6;
+    }
+
+    .skool-editor2 strong {
+      font-weight: 700;
+    }
+
+    .skool-editor2 em {
+      font-style: italic;
+    }
+
+    /* Next lesson link */
+    .next-lesson {
+      margin-top: 24px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #202124;
+      color: #FFFFFF;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 150ms;
+    }
+
+    .btn-next:hover {
+      background: #3c3d40;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .lesson-card {
+        padding: 28px 24px;
+      }
+
+      .nav-tabs {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="#" class="nav-brand">NDCG</a>
+    <div class="nav-divider"></div>
+    <div class="nav-tabs">
+      <a href="#" class="nav-tab">Community</a>
+      <a href="#" class="nav-tab active">Classroom</a>
+      <a href="#" class="nav-tab">Calendar</a>
+      <a href="#" class="nav-tab">Members</a>
+    </div>
+  </nav>
+
+  <!-- Page -->
+  <div class="page-wrap">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="module-label">Module 1</div>
+      <div class="module-title">Understanding How Credit Really Works</div>
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill">33%</div>
+        </div>
+      </div>
+      <div class="lesson-list">
+        <a href="#" class="lesson-item complete">
+          <span class="lesson-dot"></span>
+          <span>LESSON 1: What Is Credit?</span>
+        </a>
+        <a href="#" class="lesson-item complete">
+          <span class="lesson-dot"></span>
+          <span>LESSON 2: How the Credit System Really Works</span>
+        </a>
+        <a href="#" class="lesson-item complete">
+          <span class="lesson-dot"></span>
+          <span>LESSON 3: Understanding the 3 Major Credit Bureaus</span>
+        </a>
+        <a href="#" class="lesson-item active">
+          <span class="lesson-dot"></span>
+          <span>LESSON 4: Understanding Secondary Credit Bureaus</span>
+        </a>
+        <a href="#" class="lesson-item">
+          <span class="lesson-dot"></span>
+          <span>LESSON 5: Anatomy of a Credit Report</span>
+        </a>
+        <a href="#" class="lesson-item">
+          <span class="lesson-dot"></span>
+          <span>LESSON 6: How Credit Scores Are Calculated</span>
+        </a>
+        <a href="#" class="lesson-item">
+          <span class="lesson-dot"></span>
+          <span>LESSON 7: Why Credit Reports Contain Errors</span>
+        </a>
+        <a href="#" class="lesson-item">
+          <span class="lesson-dot"></span>
+          <span>LESSON 8: Consumer Laws That Protect Your Credit</span>
+        </a>
+        <a href="#" class="lesson-item">
+          <span class="lesson-dot"></span>
+          <span>LESSON 9: Module 1 Review &amp; Knowledge Assessment</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content-area">
+      <div class="lesson-card">
+        <div class="skool-editor2">
+
+          <h1>Section 1</h1>
+          <h2>What Are Secondary Credit Bureaus?</h2>
+          <p>Most people have heard of Equifax, Experian, and TransUnion. But the system that evaluates your financial life is much bigger than three companies.</p>
+          <p>Secondary credit bureaus collect and report specialized data that the major bureaus don't always capture — and financial institutions, landlords, employers, and insurers are using that data to make decisions about you right now.</p>
+          <p>If you've been focused only on your Big 3 reports, you may be missing a significant part of your own financial story. This lesson is about closing that gap.</p>
+
+          <hr>
+
+          <h1>Section 2</h1>
+          <h2>Innovis</h2>
+          <p>Innovis operates like a fourth major credit bureau. It collects much of the same data as Equifax, Experian, and TransUnion — payment history, account balances, public records — but most people have never heard of it.</p>
+          <p>That's the problem. Lenders do use Innovis data when making credit decisions, and errors in your Innovis file carry the same weight as errors on your Big 3 reports. If something is wrong there, it can cost you an approval or a favorable rate without you ever knowing why.</p>
+          <p>Your Innovis report may include:</p>
+          <ul>
+            <li>Credit accounts and payment history</li>
+            <li>Personal identifying information</li>
+            <li>Public records</li>
+            <li>Collection accounts</li>
+          </ul>
+          <p>You are entitled to a free Innovis report and have the right to dispute anything inaccurate.</p>
+
+          <hr>
+
+          <h1>Section 3</h1>
+          <h2>PRBC — Payment Reporting Builds Credit</h2>
+          <p>Here's a reality many people never consider: you may have paid rent on time for years, covered every utility bill, and kept your phone on — and none of it shows up on your credit report.</p>
+          <p>The three major bureaus weren't designed to capture alternative payment data. PRBC exists to change that. It tracks recurring payments that traditional credit bureaus ignore, giving people with thin or limited credit files a way to demonstrate financial responsibility through behavior that already exists.</p>
+          <p>Your PRBC report may include:</p>
+          <ul>
+            <li>Rent payment history</li>
+            <li>Utility payment history</li>
+            <li>Phone and subscription payments</li>
+            <li>Self-reported payment records</li>
+          </ul>
+          <p>If you've been financially responsible but your credit profile doesn't reflect it, this is one of the reasons why. Knowing about PRBC is the first step toward using it.</p>
+
+          <hr>
+
+          <h1>Section 4</h1>
+          <h2>ChexSystems</h2>
+          <p>ChexSystems doesn't track credit — it tracks your banking behavior. Most banks and credit unions pull a ChexSystems report before approving a new checking or savings account.</p>
+          <p>If you've ever had a bank account closed due to overdrafts, unpaid fees, or suspected fraud, that record may still be in your ChexSystems file. And unlike credit inquiries that fade over time, negative ChexSystems records can prevent you from opening a bank account anywhere for up to five years.</p>
+          <p>No bank account creates its own set of problems — it makes it harder to receive direct deposit, build savings, and access mainstream financial products.</p>
+          <p>Your ChexSystems report may include:</p>
+          <ul>
+            <li>Unpaid overdraft fees</li>
+            <li>Forced account closures</li>
+            <li>Suspected fraudulent activity</li>
+            <li>Returned check history</li>
+          </ul>
+          <p>You are entitled to a free ChexSystems report every 12 months and have the right to dispute inaccurate entries.</p>
+
+          <hr>
+
+          <h1>Section 5</h1>
+          <h2>LexisNexis Risk Solutions</h2>
+          <p>LexisNexis compiles one of the most detailed personal data profiles in existence. It pulls from public records, court filings, property ownership history, and hundreds of other data sources — and this information is actively used by insurance companies, employers, and financial institutions to evaluate risk.</p>
+          <p>Most people don't know their LexisNexis file exists. But others are using it to make decisions about them every day.</p>
+          <p>Your LexisNexis report may include:</p>
+          <ul>
+            <li>Previous addresses and name variations</li>
+            <li>Property ownership history</li>
+            <li>Court and bankruptcy records</li>
+            <li>Professional license information</li>
+            <li>Insurance claims history</li>
+          </ul>
+          <p>You have the right to request and review your LexisNexis personal report. If there are inaccuracies, they can affect your insurance rates, background checks, and more.</p>
+
+          <hr>
+
+          <h1>Section 6</h1>
+          <h2>Clarity Services</h2>
+          <p>Clarity Services focuses on consumers who use non-traditional lending products — payday loans, installment loans, rent-to-own arrangements. It serves lenders who operate outside the standard credit system and work with people who may have been declined elsewhere.</p>
+          <p>If you've used any of these products, your activity is likely being tracked in a Clarity file you've probably never seen. Understanding this is important because Clarity data can influence whether you're approved and what terms you're offered — even when traditional bureaus are less relevant.</p>
+          <p>Your Clarity report may include:</p>
+          <ul>
+            <li>Payday loan history</li>
+            <li>Installment loan activity</li>
+            <li>Rent-to-own account history</li>
+            <li>Short-term lending patterns</li>
+          </ul>
+
+          <hr>
+
+          <h1>Section 7</h1>
+          <h2>Why This Matters to You</h2>
+          <p>When most people work on their credit, they check three reports. But the system that evaluates your financial life includes far more than three bureaus — and every one of them can contain errors that cost you money, opportunities, and access.</p>
+          <p>The reason most people don't know about these bureaus isn't because they're hidden. It's because no one teaches this. That's exactly why this lesson exists.</p>
+          <p>Understanding secondary bureaus means understanding the full scope of your financial profile. It means knowing where to look, what you're entitled to see, and what your options are when something isn't right.</p>
+          <p>As you continue through NDCG, you'll learn how to request these reports, review them properly, and take action when something doesn't belong.</p>
+
+          <hr>
+
+          <h1>Closing</h1>
+          <h2>You Now See the Bigger Picture</h2>
+          <p>Congratulations on completing Lesson 4.</p>
+          <p>You now know that the credit reporting system is much larger than three bureaus — and that multiple agencies may be holding data about you right now that you've never reviewed.</p>
+          <p>This knowledge puts you ahead of where most people start.</p>
+          <p>In Lesson 5, we'll break down the full anatomy of a credit report — so when you pull yours, you know exactly what you're looking at and what each section means.</p>
+          <p>I'll see you in Lesson 5.</p>
+
+          <pre>📋  Please complete your workbook assignment before moving on to the next lesson.</pre>
+
+        </div>
+      </div>
+
+      <div class="next-lesson">
+        <a href="#" class="btn-next">
+          Next Lesson →
+        </a>
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

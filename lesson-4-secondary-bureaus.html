@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Secondary Credit Bureaus | NDCG</title>
+<meta name="description" content="Learn why secondary credit bureaus matter and how they affect your financial profile — NDCG by Nova D Consulting Group.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --rose:        #D98D9B;
+    --rose-light:  #EFB4BE;
+    --rose-pale:   #FAF0F2;
+    --wine:        #241318;
+    --gold:        #C9A86B;
+    --gold-light:  #E9D6B0;
+    --gold-pale:   #FAF6EE;
+    --black:       #100B0D;
+    --darkest:     #0A0608;
+    --ink:         #1A1214;
+    --ink-mid:     #4A3840;
+    --ink-muted:   #7A6870;
+    --ink-faint:   #A89AA0;
+    --white:       #ffffff;
+    --off-white:   #FAFAF9;
+    --gray-light:  #F2F0EF;
+    --gray-mid:    #E4E0DE;
+    --border:      rgba(26,18,20,.1);
+    --gold-border: rgba(201,168,107,.28);
+    --rose-border: rgba(217,141,155,.28);
+    --font-display:'Libre Baskerville', serif;
+    --font-body:   'Montserrat', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--ink); overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { width: min(1140px, 100%); margin: 0 auto; }
+  section { padding: 88px 24px; }
+
+  .kicker { font-size: .65rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; }
+  .section-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.9rem, 3.5vw, 3rem); line-height: 1.1; color: var(--ink); margin-bottom: 14px; }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub { color: var(--ink-muted); line-height: 1.85; font-size: .9rem; max-width: 620px; }
+  .center { text-align: center; }
+  .center .section-sub { margin: 0 auto; }
+  .rule { width: 48px; height: 1px; background: var(--gold); margin: 18px 0 36px; }
+  .center .rule { margin-left: auto; margin-right: auto; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 28px; font-family: var(--font-body); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 1px solid transparent; cursor: pointer; border-radius: 999px; transition: background .2s, color .2s, border-color .2s, transform .18s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-rose  { background: var(--rose);  color: #fff; border-color: var(--rose); }
+  .btn-rose:hover  { background: var(--rose-light); border-color: var(--rose-light); }
+  .btn-gold  { background: var(--gold);  color: var(--black); border-color: var(--gold); }
+  .btn-gold:hover  { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline { background: transparent; border-color: var(--rose); color: var(--rose); }
+  .btn-outline:hover { background: var(--rose-pale); }
+  .btn-outline-gold { background: transparent; border-color: var(--gold); color: var(--gold); }
+  .btn-outline-gold:hover { background: var(--gold-pale); }
+
+  /* ── NAV ── */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 1000; background: rgba(255,255,255,.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--gray-mid); transition: box-shadow .25s; }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,18,20,.08); }
+  .nav-inner { width: min(1200px,100%); margin: 0 auto; padding: 0 24px; display: flex; align-items: stretch; justify-content: space-between; gap: 20px; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--ink); letter-spacing: .02em; display: flex; align-items: center; padding: 18px 0; }
+  .nav-logo em { font-style: italic; color: var(--gold); margin-left: 4px; }
+  .nav-links { display: flex; align-items: stretch; gap: 0; list-style: none; }
+  .nav-links a { display: flex; align-items: center; color: var(--ink-muted); font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; padding: 0 16px; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+  .nav-links a:hover { color: var(--ink); border-color: var(--rose); }
+  .nav-links .nav-cta { margin-left: 8px; align-self: center; background: var(--rose); color: #fff !important; padding: 10px 20px; border-radius: 999px; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; transition: background .2s, transform .18s; }
+  .nav-links .nav-cta:hover { background: var(--rose-light); border-bottom: none; transform: translateY(-1px); }
+  .hamburger { display: none; border: 0; background: transparent; cursor: pointer; flex-direction: column; gap: 5px; padding: 18px 0; }
+  .hamburger span { width: 24px; height: 1.5px; background: var(--ink); display: block; }
+  .mobile-menu { position: fixed; inset: 0; z-index: 999; background: var(--white); transform: translateX(100%); transition: transform .3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a { color: var(--ink); font-size: .85rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 700; }
+  .mobile-menu a:hover { color: var(--rose); }
+  .mobile-close { position: absolute; top: 22px; right: 24px; border: 0; background: transparent; color: var(--ink-muted); font-size: 2rem; cursor: pointer; }
+
+  /* ── LESSON HERO ── */
+  .lesson-hero { padding-top: 130px; padding-bottom: 0; background: var(--white); border-bottom: 1px solid var(--gray-mid); }
+  .lesson-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+  .lesson-number { font-family: var(--font-display); font-size: clamp(5rem, 12vw, 10rem); font-weight: 400; color: var(--gray-mid); line-height: 1; margin-bottom: -12px; }
+  .lesson-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 500; line-height: 1.1; color: var(--ink); margin-bottom: 18px; }
+  .lesson-hero h1 em { font-style: italic; color: var(--gold); display: block; }
+  .lesson-hero p { color: var(--ink-muted); line-height: 1.9; font-size: .92rem; max-width: 480px; margin-bottom: 28px; }
+  .lesson-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding-bottom: 48px; }
+  .meta-pill { border: 1px solid var(--gray-mid); padding: 7px 14px; font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+  .meta-pill.gold { border-color: var(--gold-border); color: var(--gold); background: var(--gold-pale); }
+  .lesson-visual { padding-bottom: 0; display: flex; align-items: flex-end; justify-content: center; }
+  .lesson-visual-inner { background: var(--wine); padding: 40px 36px; width: 100%; }
+  .lesson-visual-inner .kicker { margin-bottom: 18px; }
+  .visual-stat { font-family: var(--font-display); font-size: 3rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .visual-label { color: rgba(255,255,255,.45); font-size: .82rem; line-height: 1.7; }
+
+  /* ── WHY SECTION ── */
+  .why-section { background: var(--off-white); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: start; }
+  .why-divider { background: var(--gray-mid); }
+  .why-col { padding: 0 48px 0 0; }
+  .why-col:last-child { padding: 0 0 0 48px; }
+  .why-col p { color: var(--ink-muted); line-height: 1.9; font-size: .9rem; margin-bottom: 16px; }
+  .impact-list { list-style: none; display: grid; gap: 10px; margin-top: 20px; }
+  .impact-list li { display: flex; gap: 12px; font-size: .86rem; color: var(--ink-muted); line-height: 1.7; align-items: baseline; }
+  .impact-list li::before { content: '→'; color: var(--rose); flex: 0 0 auto; }
+
+  /* ── BUREAU CARDS ── */
+  .bureaus-section { background: var(--white); }
+  .bureau-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-mid); margin-top: 52px; }
+  .bureau-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+  .bureau-card.dark { background: var(--wine); }
+  .bureau-icon { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rose-border); display: grid; place-items: center; font-size: 1.2rem; flex: 0 0 44px; margin-bottom: 18px; }
+  .bureau-card.dark .bureau-icon { border-color: rgba(201,168,107,.28); }
+  .bureau-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--rose); margin-bottom: 8px; }
+  .bureau-card.dark .bureau-name { color: var(--gold); }
+  .bureau-tag { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+  .bureau-card.dark .bureau-tag { color: rgba(255,255,255,.28); }
+  .bureau-why { font-size: .84rem; font-weight: 700; color: var(--ink); margin: 14px 0 6px; }
+  .bureau-card.dark .bureau-why { color: rgba(255,255,255,.7); }
+  .bureau-card p { color: var(--ink-muted); font-size: .84rem; line-height: 1.75; }
+  .bureau-card.dark p { color: rgba(255,255,255,.45); }
+  .bureau-tracks { list-style: none; display: grid; gap: 7px; margin-top: 14px; border-top: 1px solid var(--gray-mid); padding-top: 14px; }
+  .bureau-card.dark .bureau-tracks { border-color: rgba(201,168,107,.15); }
+  .bureau-tracks li { display: flex; gap: 8px; font-size: .78rem; color: var(--ink-muted); line-height: 1.5; }
+  .bureau-card.dark .bureau-tracks li { color: rgba(255,255,255,.4); }
+  .bureau-tracks li::before { content: '✓'; color: var(--rose); font-size: .65rem; flex: 0 0 auto; margin-top: 2px; }
+  .bureau-card.dark .bureau-tracks li::before { color: var(--gold); }
+  .bureau-bottom { margin-top: auto; padding-top: 18px; }
+  .bureau-impact { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); border-top: 1px solid var(--gold-border); padding-top: 14px; margin-top: 18px; }
+  .bureau-card.dark .bureau-impact { border-color: rgba(201,168,107,.18); }
+
+  /* ── QUOTE BANNER ── */
+  .quote-banner { background: var(--wine); padding: 52px 24px; }
+  .quote-inner { width: min(940px,100%); margin: 0 auto; display: flex; align-items: flex-start; gap: 24px; }
+  .q-mark { font-family: var(--font-display); font-size: 5rem; font-weight: 400; color: rgba(217,141,155,.25); line-height: .8; flex: 0 0 auto; margin-top: -6px; }
+  .q-text { font-family: var(--font-display); font-size: clamp(1.3rem,2.2vw,1.75rem); font-weight: 500; color: var(--white); line-height: 1.5; margin-bottom: 18px; }
+  .q-author { display: flex; align-items: center; gap: 12px; }
+  .q-avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--rose-border); background: rgba(217,141,155,.12); display: grid; place-items: center; font-family: var(--font-display); font-size: .85rem; font-weight: 600; color: var(--rose); }
+  .q-author b { display: block; font-size: .78rem; color: var(--rose-light); letter-spacing: .06em; }
+  .q-author span { font-size: .72rem; color: rgba(255,255,255,.38); }
+
+  /* ── MINDSET SECTION ── */
+  .mindset-section { background: var(--off-white); }
+  .mindset-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: center; }
+  .mindset-checks { list-style: none; display: grid; gap: 10px; margin: 20px 0 28px; }
+  .mindset-checks li { display: flex; gap: 12px; font-size: .86rem; color: var(--ink-muted); line-height: 1.75; align-items: baseline; }
+  .mindset-checks li::before { content: '✓'; color: var(--rose); flex: 0 0 auto; }
+  .mindset-stat-card { background: var(--wine); padding: 44px 36px; }
+  .mindset-stat-card .big-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 10px; }
+  .mindset-stat-card p { color: rgba(255,255,255,.5); font-size: .86rem; line-height: 1.75; margin-bottom: 0; }
+  .mindset-stat-card .sub { font-size: .66rem; color: var(--rose-light); text-transform: uppercase; letter-spacing: .14em; margin-top: 20px; margin-bottom: 6px; font-weight: 700; }
+  .mindset-copy p { color: var(--ink-muted); line-height: 1.9; font-size: .9rem; margin-bottom: 16px; }
+
+  /* ── NEXT LESSON BAND ── */
+  .next-band { background: var(--rose); padding: 36px 24px; }
+  .next-band-inner { width: min(1140px,100%); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .next-band-text { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 500; color: #fff; }
+  .next-band-text span { font-size: .8rem; font-family: var(--font-body); font-weight: 400; display: block; margin-top: 4px; color: rgba(255,255,255,.65); }
+  .btn-outline-light { background: transparent; border-color: rgba(255,255,255,.55); color: #fff; border: 1px solid rgba(255,255,255,.55); border-radius: 999px; }
+  .btn-outline-light:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+
+  /* ── FINAL CTA ── */
+  .lesson-cta { background: var(--black); padding: 88px 24px; text-align: center; }
+  .lesson-cta .kicker { color: var(--rose-light); }
+  .lesson-cta .section-title { color: var(--white); }
+  .lesson-cta .section-title em { color: var(--gold); }
+  .lesson-cta p { margin: 0 auto 32px; color: rgba(255,255,255,.5); max-width: 580px; line-height: 1.85; font-size: .9rem; }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--gray-light); padding: 48px 24px; border-top: 1px solid var(--gray-mid); text-align: center; }
+  footer .nav-logo { display: inline-flex; margin-bottom: 10px; }
+  footer p { color: var(--ink-faint); font-size: .76rem; }
+
+  /* ── Reveal ── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.on { opacity: 1; transform: translateY(0); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn { transition: none; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1060px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .lesson-hero .container { grid-template-columns: 1fr; gap: 36px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-divider { height: 1px; width: 100%; background: var(--gray-mid); }
+    .why-col { padding: 0 0 32px; }
+    .why-col:last-child { padding: 32px 0 0; }
+    .mindset-layout { grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 820px) {
+    section { padding: 68px 20px; }
+    .bureau-grid { grid-template-columns: 1fr; }
+    .next-band-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Nova D <em>Consulting</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#pricing">Packages</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="client-resources.html">Client Resources</a></li>
+      <li><a href="https://calendly.com/novadconsultinggroup" class="nav-cta" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  <a href="index.html#services" onclick="closeMobile()">Services</a>
+  <a href="index.html#pricing" onclick="closeMobile()">Packages</a>
+  <a href="index.html#about" onclick="closeMobile()">About</a>
+  <a href="client-resources.html">Client Resources</a>
+  <a href="https://calendly.com/novadconsultinggroup" class="btn btn-rose" target="_blank" rel="noopener">Book Consultation</a>
+</div>
+
+<!-- ── LESSON HERO ── -->
+<section class="lesson-hero" id="top">
+  <div class="container reveal">
+    <div>
+      <div class="kicker">NDCG · Lesson 4</div>
+      <div class="lesson-number">04</div>
+      <h1>The Bureaus Most People <em>Don't Know Exist</em></h1>
+      <p>Most people only think about Experian, Equifax, and TransUnion. But there are agencies collecting data on your banking history, utilities, property records, and identity — and lenders are checking those too.</p>
+      <div class="lesson-meta">
+        <span class="meta-pill">Secondary Bureaus</span>
+        <span class="meta-pill gold">Foundation Lesson</span>
+        <span class="meta-pill">Workbook Assignment Included</span>
+      </div>
+    </div>
+    <div class="lesson-visual">
+      <div class="lesson-visual-inner">
+        <div class="kicker">Why This Lesson Comes First</div>
+        <div class="visual-stat">5</div>
+        <p class="visual-label">Secondary bureaus that can close doors before you even reach the three major ones. You need to know what's in them before you start disputing anything.</p>
+        <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(201,168,107,.18);">
+          <div class="kicker" style="margin-bottom:6px;">Lesson Outcome</div>
+          <p class="visual-label">By the end of this lesson, you will know exactly which agencies hold information about you — and why reviewing them first gives you a real advantage in the dispute process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY IT MATTERS ── -->
+<section class="why-section">
+  <div class="container">
+    <div class="center reveal" style="margin-bottom:52px;">
+      <div class="kicker">The Bigger Picture</div>
+      <h2 class="section-title">Your Financial Profile Is <em>Larger Than You Think</em></h2>
+      <p class="section-sub">Lenders, banks, landlords, and service providers are not all looking at the same report. Some are looking at reports you have never seen — and decisions are being made based on what those reports say about you.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-col">
+        <div class="kicker">The Problem</div>
+        <h3 class="section-title" style="font-size:clamp(1.4rem,2.2vw,1.9rem);">Invisible Data<em>Costs You Opportunities</em></h3>
+        <p>When a bank declines your checking account application, it often is not because of Experian or Equifax. It is because of a report you probably have never pulled. When a utility company denies you service or requires a large deposit, the same thing is happening.</p>
+        <p>Most people spend months working on their major credit reports, then hit the same walls — because they never dealt with what secondary bureaus have on file.</p>
+        <ul class="impact-list">
+          <li>A single closed checking account can prevent you from banking for years</li>
+          <li>Unpaid utility balances can show up in places your credit repair never reached</li>
+          <li>Identity mismatches can flag you across multiple verification systems at once</li>
+          <li>Mortgage underwriters may review property and insurance data you have never seen</li>
+        </ul>
+      </div>
+      <div class="why-divider"></div>
+      <div class="why-col" style="padding: 0 0 0 48px;">
+        <div class="kicker">The Advantage</div>
+        <h3 class="section-title" style="font-size:clamp(1.4rem,2.2vw,1.9rem);">Review First,<em>Dispute with Confidence</em></h3>
+        <p>When you understand what secondary bureaus are collecting — and why — you walk into the dispute process with a complete picture instead of a partial one. You stop being surprised by denials you cannot explain.</p>
+        <p>This is not extra credit work. It is the foundation. Every student at NDCG starts here because it changes how you read every other report that comes after it.</p>
+        <ul class="impact-list">
+          <li>You learn which agencies to pull before you begin disputing anything</li>
+          <li>You identify inaccuracies that major bureau disputes would never touch</li>
+          <li>You understand why certain lenders and providers make the decisions they do</li>
+          <li>You build a complete picture of your financial profile — not just a piece of it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE BUREAUS ── -->
+<section class="bureaus-section" id="bureaus">
+  <div class="container center reveal">
+    <div class="kicker">Meet the Secondary Bureaus</div>
+    <h2 class="section-title">Five Agencies Reporting <em>On You Right Now</em></h2>
+    <p class="section-sub">Each one collects a different type of information. Each one can influence a decision that has nothing to do with your Experian score.</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="container bureau-grid">
+    <!-- Innovis -->
+    <div class="bureau-card reveal">
+      <div class="bureau-icon">📋</div>
+      <div class="bureau-name">Innovis</div>
+      <div class="bureau-tag">The Fourth Credit Bureau</div>
+      <p>Often called the fourth major bureau, Innovis maintains consumer credit information and identity data. Some lenders reference Innovis reports during credit evaluations — which means an error here can cost you an approval you thought you were ready for.</p>
+      <div class="bureau-why">Why it matters to you:</div>
+      <ul class="bureau-tracks">
+        <li>Some creditors pull it even when they do not advertise that they do</li>
+        <li>Inaccuracies here may go unchallenged because most people never think to check</li>
+        <li>Pulling your Innovis report is a free right under federal law</li>
+      </ul>
+      <div class="bureau-bottom">
+        <div class="bureau-impact">Impact Area: Credit Approvals</div>
+      </div>
+    </div>
+
+    <!-- LexisNexis -->
+    <div class="bureau-card dark reveal">
+      <div class="bureau-icon">🔍</div>
+      <div class="bureau-name">LexisNexis Risk Solutions</div>
+      <div class="bureau-tag">Identity & Public Records</div>
+      <p>LexisNexis collects public records and identity-related information used to verify who you are. Many organizations run your name through LexisNexis before they do anything else — which means what this report says about you can shape every first impression you make with a new lender or service.</p>
+      <div class="bureau-why">What it may include:</div>
+      <ul class="bureau-tracks">
+        <li>Previous addresses and name variations</li>
+        <li>Public records and property information</li>
+        <li>Identity flags that can trigger verification holds</li>
+      </ul>
+      <div class="bureau-bottom">
+        <div class="bureau-impact">Impact Area: Identity Verification</div>
+      </div>
+    </div>
+
+    <!-- ChexSystems -->
+    <div class="bureau-card reveal">
+      <div class="bureau-icon">🏦</div>
+      <div class="bureau-name">ChexSystems</div>
+      <div class="bureau-tag">Banking History</div>
+      <p>ChexSystems is the reason people get denied a checking account. Banks report negative banking behavior here, and most financial institutions check it before opening any account for you. If you have ever been unable to open a bank account and did not understand why — this is likely the answer.</p>
+      <div class="bureau-why">What it may include:</div>
+      <ul class="bureau-tracks">
+        <li>Closed accounts and unpaid balances</li>
+        <li>Suspected fraud and account abuse flags</li>
+        <li>Activity that follows you from bank to bank</li>
+      </ul>
+      <div class="bureau-bottom">
+        <div class="bureau-impact">Impact Area: Banking Access</div>
+      </div>
+    </div>
+
+    <!-- CoreLogic -->
+    <div class="bureau-card dark reveal">
+      <div class="bureau-icon">🏠</div>
+      <div class="bureau-name">CoreLogic</div>
+      <div class="bureau-tag">Property, Insurance & Real Estate</div>
+      <p>CoreLogic compiles information related to property, insurance, and real estate. Mortgage lenders and insurance companies may use this data during underwriting. If homeownership or real estate is part of your goals, understanding your CoreLogic report is not optional — it is preparation.</p>
+      <div class="bureau-why">What it may include:</div>
+      <ul class="bureau-tracks">
+        <li>Property ownership and transaction history</li>
+        <li>Insurance claims and loss data</li>
+        <li>Information that influences mortgage and insurance approvals</li>
+      </ul>
+      <div class="bureau-bottom">
+        <div class="bureau-impact">Impact Area: Mortgage & Insurance</div>
+      </div>
+    </div>
+
+    <!-- NCTUE -->
+    <div class="bureau-card reveal">
+      <div class="bureau-icon">📡</div>
+      <div class="bureau-name">NCTUE</div>
+      <div class="bureau-tag">National Consumer Telecom & Utilities Exchange</div>
+      <p>NCTUE collects data from utility companies, cell phone providers, cable providers, and internet services. When you apply to turn on the lights in a new home or switch wireless carriers, providers may check this report. Unpaid balances that never touched your credit report may be quietly working against you here.</p>
+      <div class="bureau-why">What it may include:</div>
+      <ul class="bureau-tracks">
+        <li>Utility account history and payment patterns</li>
+        <li>Telecom and cable account records</li>
+        <li>Balances that trigger deposits or denials</li>
+      </ul>
+      <div class="bureau-bottom">
+        <div class="bureau-impact">Impact Area: Utilities & Telecom Services</div>
+      </div>
+    </div>
+
+    <!-- Summary card -->
+    <div class="bureau-card dark reveal" style="justify-content:center;">
+      <div class="kicker" style="margin-bottom:16px;">Your Takeaway</div>
+      <p class="q-text" style="font-family:var(--font-display);font-size:1.3rem;color:var(--white);line-height:1.55;margin-bottom:20px;">Five agencies. Five different pictures of who you are. All of them being checked — and most people have never looked at a single one.</p>
+      <p style="color:rgba(255,255,255,.45);font-size:.84rem;line-height:1.75;margin-bottom:24px;">The good news is that each of these reports is accessible to you under federal law. You have the right to review them, dispute inaccuracies, and start correcting the record.</p>
+      <a href="https://calendly.com/novadconsultinggroup" class="btn btn-gold" target="_blank" rel="noopener">Get Support From NDCG</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<div class="quote-banner">
+  <div class="quote-inner">
+    <div class="q-mark">"</div>
+    <div>
+      <p class="q-text">Most clients come to us thinking their only problem is a low credit score. Then we show them their ChexSystems report or their LexisNexis file — and they understand why certain doors have stayed closed for so long.</p>
+      <div class="q-author">
+        <div class="q-avatar">ND</div>
+        <div><b>Nova D Consulting Group</b><span>NDCG</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MINDSET ── -->
+<section class="mindset-section">
+  <div class="container mindset-layout">
+    <div class="mindset-copy reveal">
+      <div class="kicker">Why We Start Here</div>
+      <h2 class="section-title">Knowledge Is the <em>First Dispute</em></h2>
+      <p>At NDCG, we teach students to review their secondary reports before touching anything else. Not because it is busy work — but because you cannot fix what you do not know is broken.</p>
+      <p>The students who skip this step are the ones who spend months disputing major bureau accounts and still cannot get approved for a bank account. The ones who do this work first move faster, hit fewer walls, and understand why each step in the process matters.</p>
+      <ul class="mindset-checks">
+        <li>Develop a complete view of your financial profile — not just your credit score</li>
+        <li>Identify inaccuracies across all five secondary bureaus before beginning disputes</li>
+        <li>Understand the "why" behind every denial so your strategy addresses it directly</li>
+        <li>Build the foundational habits that will carry you through every lesson that follows</li>
+      </ul>
+      <a href="https://calendly.com/novadconsultinggroup" class="btn btn-rose" target="_blank" rel="noopener">Work With NDCG Directly</a>
+    </div>
+    <div class="reveal">
+      <div class="mindset-stat-card">
+        <div class="kicker" style="margin-bottom:14px;">The Reality Check</div>
+        <div class="big-num">Most</div>
+        <p>consumers focus exclusively on Experian, Equifax, and TransUnion. That leaves five reporting agencies — and every denial connected to them — completely unaddressed.</p>
+        <div class="sub">What this means for your strategy</div>
+        <p>A dispute process that ignores secondary bureaus is an incomplete one. This lesson exists to make sure that is never you.</p>
+        <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(201,168,107,.15);">
+          <div class="kicker" style="margin-bottom:8px;">Your Action Step</div>
+          <p>Complete the Lesson 4 workbook assignment and upload it to your Homework tab. In Lesson 5, we break down every section of a credit report so you know exactly what you are looking at.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEXT LESSON BAND ── -->
+<div class="next-band">
+  <div class="next-band-inner">
+    <div class="next-band-text">
+      Up Next: Lesson 5 — Reading Your Credit Report
+      <span>We break down every section so you know exactly what you're looking at and what it means for your profile.</span>
+    </div>
+    <a href="#" class="btn btn-outline-light">Continue to Lesson 5</a>
+  </div>
+</div>
+
+<!-- ── FINAL CTA ── -->
+<section class="lesson-cta">
+  <div class="container reveal">
+    <div class="kicker">Ready to Move Faster?</div>
+    <h2 class="section-title">Don't Do This Alone. <em>Let NDCG Guide You.</em></h2>
+    <p>NDCG gives you the knowledge. Nova D Consulting Group gives you the support, strategy, and done-with-you accountability to actually see results.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/novadconsultinggroup" class="btn btn-gold" target="_blank" rel="noopener">Book Your Free Consultation</a>
+      <a href="index.html#pricing" class="btn btn-outline-light">View Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:10px;">Nova D <em>Consulting</em></a>
+  <p>NDCG is an educational program by Nova D Consulting Group.</p>
+  <p style="margin-top:8px;">© 2025 Nova D Consulting Group. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 48));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: .1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
